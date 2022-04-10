@@ -85,9 +85,7 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
-              width: 15,
-            ),
+            SizedBox(width: 17),
             FloatingActionButton(
               onPressed: () {
                 play();
@@ -95,9 +93,7 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
               backgroundColor: Color(0xff680D49),
               child: Icon(Icons.play_arrow),
             ),
-            SizedBox(
-              width: 10,
-            ),
+            SizedBox(width: 10),
             FloatingActionButton(
               onPressed: () {
                 stopplay();
@@ -105,9 +101,7 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
               backgroundColor: Color(0xff680D49),
               child: Icon(Icons.stop),
             ),
-            SizedBox(
-              width: 70,
-            ),
+            SizedBox(width: 60),
             FloatingActionButton.extended(
               onPressed: () {
                 advancedPlayer.setPlaybackRate(1);
@@ -115,9 +109,7 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
               backgroundColor: Color(0xff680D49),
               label: Text('1x'),
             ),
-            SizedBox(
-              width: 5,
-            ),
+            SizedBox(width: 5),
             FloatingActionButton.extended(
               onPressed: () {
                 advancedPlayer.setPlaybackRate(2.0);
@@ -125,9 +117,7 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
               backgroundColor: Color(0xff680D49),
               label: Text('2x'),
             ),
-            SizedBox(
-              width: 5,
-            ),
+            SizedBox(width: 5),
             FloatingActionButton.extended(
               onPressed: () {
                 advancedPlayer.setPlaybackRate(2.0);
