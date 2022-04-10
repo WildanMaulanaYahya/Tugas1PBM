@@ -1,115 +1,110 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  AudioCache audioCache = AudioCache();
+  AudioPlayer advancedPlayer = AudioPlayer();
+
+  Future play() async {
+    advancedPlayer = await audioCache.play('Timun_mas.mp3');
+  }
+
+  Future stopplay() async {
+    await advancedPlayer.stop();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(appBarTheme: AppBarTheme(color: Color(0xff680D49))),
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text("Cerita Rakyat"),
+        ),
+        body: SingleChildScrollView(
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Column(
+              children: <Widget>[
+                SizedBox(height: 20),
+                Text("Cerita Rakyat Timun Mas dan Buto Ijo",
+                    textAlign: TextAlign.center,
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
+                SizedBox(height: 20),
+                Image.asset('images/TimunMas.jpg'),
+                SizedBox(height: 20),
+                Text(
+                  """Cerita dimulai dengan kisah seorang janda tua bernama Mbok Srini, yang kesepian dan mengharapkan kehadiran anak. Ia berharap ada keajaiban yang bisa mewujudkan keiginannya tersebut.
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
+Lalu di suatu malam, ia bermimpi didatangi raksasa yang memberikan pesan untuk mengambil bungkusan yang ada di bawah pohon besar, yang katanya adalah jawaban dari harapannya.
 
-  // This widget is the home page of your application. It is stateful, meaning
-  // that it has a State object (defined below) that contains fields that affect
-  // how it looks.
+Percaya tidak percaya, Mbok Srini kemudian mendatangi hutan dan melihat pohon yang persis seperti di dalam mimpinya. Benar saja, di sebuah lubang ditemukan sebuah bungkusan yang sangat kecil. Penasaran, Mbok Srini membuka bungkusan tersebut dan ternyata isinya adalah sebuah biji timun.
 
-  // This class is the configuration for the state. It holds the values (in this
-  // case the title) provided by the parent (in this case the App widget) and
-  // used by the build method of the State. Fields in a Widget subclass are
-  // always marked "final".
+Tiba-tiba terdengar suara keras dan menyeramkan. Sang raksasa yang ada di mimpinya benar-benar hadir dihadapannya.
 
-  final String title;
+Singkat cerita Mbok Srini membuat kesepakatan dengan raksasa tersebut, untuk menanam biji timun yang diberikannya. Nantinya, akan ‘lahir’ seorang anak perempuan yang bisa menemani Mbok Srini dalam waktu tertentu, sebelum kemudian diambil oleh raksasa.
 
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
+Setelah dirawat dengan baik, tanaman tersebut tumbuh dan benar-benar ‘melahirkan’ seorang anak perempuan cantik. Anak ini diberi nama Timun Mas. Timun Mas sendiri kemudian dirawat dan dibesarkan dengan baik serta penuh kasih oleh Mbok Srini.
 
-class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+Tak terasa waktu yang disepakati Mbok Srini dan raksasa telah dekat. Raksasa hadir kembali di mimpinya untuk menagih janji Mbok Srini untuk mengembalikan Timun Mas.
 
-  void _incrementCounter() {
-    setState(() {
-      // This call to setState tells the Flutter framework that something has
-      // changed in this State, which causes it to rerun the build method below
-      // so that the display can reflect the updated values. If we changed
-      // _counter without calling setState(), then the build method would not be
-      // called again, and so nothing would appear to happen.
-      _counter++;
-    });
-  }
+Mbok Srini yang terlanjur mengasihi Timun Mas tidak rela anaknya itu diambil oleh raksasa, dan mencari cara untuk menyelamatkan Timun Mas. Bantuan tiba dalam bentuk seorang petapa yang memberikan empat bungkusan. Bungkusan ini berisi senjata yang bisa digunakan melawan raksasa, dan bisa digunakan oleh Timun Mas.
 
-  @override
-  Widget build(BuildContext context) {
-    // This method is rerun every time setState is called, for instance as done
-    // by the _incrementCounter method above.
-    //
-    // The Flutter framework has been optimized to make rerunning build methods
-    // fast, so that you can just rebuild anything that needs updating rather
-    // than having to individually change instances of widgets.
-    return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: Center(
-        // Center is a layout widget. It takes a single child and positions it
-        // in the middle of the parent.
-        child: Column(
-          // Column is also a layout widget. It takes a list of children and
-          // arranges them vertically. By default, it sizes itself to fit its
-          // children horizontally, and tries to be as tall as its parent.
-          //
-          // Invoke "debug painting" (press "p" in the console, choose the
-          // "Toggle Debug Paint" action from the Flutter Inspector in Android
-          // Studio, or the "Toggle Debug Paint" command in Visual Studio Code)
-          // to see the wireframe for each widget.
-          //
-          // Column has various properties to control how it sizes itself and
-          // how it positions its children. Here we use mainAxisAlignment to
-          // center the children vertically; the main axis here is the vertical
-          // axis because Columns are vertical (the cross axis would be
-          // horizontal).
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
+Tak berapa lama raksasa mendatangi gubuk milik Mbok Srini, dan meminta TImun Mas untuk ikut dengannya. Mbok Srini dan Timum Mas bersepakat bahwa keduanya akan berpisah, Mbok Srini menghadapi raksasa dan Timun Mas lari sejauh mungkin. Tidak berhasil mengalihkan perhatian raksasa, Mbok Srini tersungkur tak berdaya dihadapan raksasa yang marah.
+
+Raksasa kemudian mengejar Timun Mas. Satu per satu senjata yang diberikan oleh petapa tersebut dikeluarkan untuk menghalau raksasa. Senjata pertama adalah biji timun, yang ketika dilemparkan membuat area di belakangnya ditumbuhi tanaman timun yang begitu banyak, hingga membelit raksasa dan menghambatnya. Sialnya cara pertama ini gagal dan raksasa terus mengejarnya.
+
+Kedua, ia melemparkan jarum yang ia pegang dalam bungkusan. Jarum tersebut berubah jadi hutan bambu yang runcing dan melukai raksasa. Kembali, cara yang digunakan ini masih gagal.
+
+Pada bungkusan ketiga, Timun Mas melemparkan garam ke tanah dibelakangnya. Raksasa yang makin murka tak peduli, dan mendadak terjebak di dalam lautan luas. Sial, raksasa masih bisa melewati halangan ini.
+
+Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membuat area di sekitarnya menjadi lautan lumpur yang begitu pekat. Raksasa akhirnya terjebak dan tidak lagi bisa mengejar Timun Mas. Ia selamat, dan kembali berkumpul dengan Mbok Srini dan hidup bahagia hingga akhir waktu.""",
+                  textAlign: TextAlign.justify,
+                ),
+              ],
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+          ),
+        ),
+        floatingActionButton: Row(
+          children: [
+            SizedBox(
+              width: 250,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                play();
+              },
+              backgroundColor: Color(0xff680D49),
+              child: Icon(Icons.play_arrow),
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            FloatingActionButton(
+              onPressed: () {
+                stopplay();
+              },
+              backgroundColor: Color(0xff680D49),
+              child: Icon(Icons.stop),
             ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
