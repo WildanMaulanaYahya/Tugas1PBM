@@ -22,10 +22,13 @@ class _MyAppState extends State<MyApp> {
     advancedPlayer = await audioCache.play('Timun_mas.mp3');
   }
 
+  // ScrollController controller = ScrollController();
+
   Future stopplay() async {
     await advancedPlayer.stop();
   }
 
+  bool isRepeat = false;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -36,12 +39,13 @@ class _MyAppState extends State<MyApp> {
           title: Text("Cerita Rakyat"),
         ),
         body: SingleChildScrollView(
+          // controller: controller,
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
               children: <Widget>[
                 SizedBox(height: 20),
-                Text("Cerita Rakyat Timun Mas dan Buto Ijo",
+                Text("Timun Mas dan Buto Ijo",
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
@@ -76,18 +80,22 @@ Pada bungkusan ketiga, Timun Mas melemparkan garam ke tanah dibelakangnya. Raksa
 Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membuat area di sekitarnya menjadi lautan lumpur yang begitu pekat. Raksasa akhirnya terjebak dan tidak lagi bisa mengejar Timun Mas. Ia selamat, dan kembali berkumpul dengan Mbok Srini dan hidup bahagia hingga akhir waktu.""",
                   textAlign: TextAlign.justify,
                 ),
+                SizedBox(height: 80)
               ],
             ),
           ),
         ),
         floatingActionButton: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(
-              width: 250,
-            ),
+            // SizedBox(
+            //   width: 100,
+            // ),
             FloatingActionButton(
               onPressed: () {
                 play();
+                // controller.animateTo(1500,
+                //     duration: Duration(seconds: 150), curve: Curves.linear);
               },
               backgroundColor: Color(0xff680D49),
               child: Icon(Icons.play_arrow),
@@ -102,6 +110,36 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
               backgroundColor: Color(0xff680D49),
               child: Icon(Icons.stop),
             ),
+            SizedBox(
+              width: 60,
+            ),
+            FloatingActionButton.extended(
+              onPressed: () {
+                advancedPlayer.setPlaybackRate(0.1);
+              },
+              backgroundColor: Color(0xff680D49),
+              label: Text('0.1x'),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            FloatingActionButton.extended(
+              onPressed: () {
+                advancedPlayer.setPlaybackRate(2.0);
+              },
+              backgroundColor: Color(0xff680D49),
+              label: Text('2x'),
+            ),
+            SizedBox(
+              width: 5,
+            ),
+            FloatingActionButton.extended(
+              onPressed: () {
+                advancedPlayer.setPlaybackRate(2.0);
+              },
+              backgroundColor: Color(0xff680D49),
+              label: Text('4x'),
+            )
           ],
         ),
       ),
