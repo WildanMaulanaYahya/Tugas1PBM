@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:audioplayers/audioplayers.dart';
 
@@ -31,25 +29,26 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(appBarTheme: AppBarTheme(color: Color(0xff680D49))),
+      theme:
+          ThemeData(appBarTheme: const AppBarTheme(color: Color(0xff680D49))),
       home: Scaffold(
         appBar: AppBar(
-          title: Text("Cerita Rakyat"),
+          title: const Text("Cerita Rakyat"),
         ),
         body: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
               children: <Widget>[
-                SizedBox(height: 20),
-                Text("Timun Mas dan Buto Ijo",
+                const SizedBox(height: 20),
+                const Text("Timun Mas dan Buto Ijo",
                     textAlign: TextAlign.center,
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 30)),
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Image.asset('images/TimunMas.jpg'),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   """Cerita dimulai dengan kisah seorang janda tua bernama Mbok Srini, yang kesepian dan mengharapkan kehadiran anak. Ia berharap ada keajaiban yang bisa mewujudkan keiginannya tersebut.
 
 Lalu di suatu malam, ia bermimpi didatangi raksasa yang memberikan pesan untuk mengambil bungkusan yang ada di bawah pohon besar, yang katanya adalah jawaban dari harapannya.
@@ -77,7 +76,7 @@ Pada bungkusan ketiga, Timun Mas melemparkan garam ke tanah dibelakangnya. Raksa
 Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membuat area di sekitarnya menjadi lautan lumpur yang begitu pekat. Raksasa akhirnya terjebak dan tidak lagi bisa mengejar Timun Mas. Ia selamat, dan kembali berkumpul dengan Mbok Srini dan hidup bahagia hingga akhir waktu.""",
                   textAlign: TextAlign.justify,
                 ),
-                SizedBox(height: 70)
+                const SizedBox(height: 70)
               ],
             ),
           ),
@@ -85,45 +84,45 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            SizedBox(width: 17),
+            const SizedBox(width: 17),
             FloatingActionButton(
               onPressed: () {
                 play();
               },
-              backgroundColor: Color(0xff680D49),
-              child: Icon(Icons.play_arrow),
+              backgroundColor: const Color(0xff680D49),
+              child: const Icon(Icons.play_arrow),
             ),
-            SizedBox(width: 10),
+            const SizedBox(width: 10),
             FloatingActionButton(
               onPressed: () {
                 stopplay();
               },
-              backgroundColor: Color(0xff680D49),
-              child: Icon(Icons.stop),
+              backgroundColor: const Color(0xff680D49),
+              child: const Icon(Icons.stop),
             ),
-            SizedBox(width: 60),
+            const SizedBox(width: 60),
             FloatingActionButton.extended(
               onPressed: () {
                 advancedPlayer.setPlaybackRate(1);
               },
-              backgroundColor: Color(0xff680D49),
-              label: Text('1x'),
+              backgroundColor: const Color(0xff680D49),
+              label: const Text('1x'),
             ),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             FloatingActionButton.extended(
               onPressed: () {
                 advancedPlayer.setPlaybackRate(2.0);
               },
-              backgroundColor: Color(0xff680D49),
-              label: Text('2x'),
+              backgroundColor: const Color(0xff680D49),
+              label: const Text('2x'),
             ),
-            SizedBox(width: 5),
+            const SizedBox(width: 5),
             FloatingActionButton.extended(
               onPressed: () {
                 advancedPlayer.setPlaybackRate(2.0);
               },
-              backgroundColor: Color(0xff680D49),
-              label: Text('4x'),
+              backgroundColor: const Color(0xff680D49),
+              label: const Text('4x'),
             )
           ],
         ),
