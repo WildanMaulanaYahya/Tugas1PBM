@@ -119,7 +119,7 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
             const SizedBox(width: 5),
             FloatingActionButton.extended(
               onPressed: () {
-                advancedPlayer.setPlaybackRate(2.0);
+                advancedPlayer.setPlaybackRate(4.0);
               },
               backgroundColor: const Color(0xff680D49),
               label: const Text('4x'),
