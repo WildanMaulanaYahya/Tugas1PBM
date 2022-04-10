@@ -22,8 +22,6 @@ class _MyAppState extends State<MyApp> {
     advancedPlayer = await audioCache.play('Timun_mas.mp3');
   }
 
-  // ScrollController controller = ScrollController();
-
   Future stopplay() async {
     await advancedPlayer.stop();
   }
@@ -39,7 +37,6 @@ class _MyAppState extends State<MyApp> {
           title: Text("Cerita Rakyat"),
         ),
         body: SingleChildScrollView(
-          // controller: controller,
           child: Padding(
             padding: const EdgeInsets.all(10),
             child: Column(
@@ -80,7 +77,7 @@ Pada bungkusan ketiga, Timun Mas melemparkan garam ke tanah dibelakangnya. Raksa
 Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membuat area di sekitarnya menjadi lautan lumpur yang begitu pekat. Raksasa akhirnya terjebak dan tidak lagi bisa mengejar Timun Mas. Ia selamat, dan kembali berkumpul dengan Mbok Srini dan hidup bahagia hingga akhir waktu.""",
                   textAlign: TextAlign.justify,
                 ),
-                SizedBox(height: 80)
+                SizedBox(height: 70)
               ],
             ),
           ),
@@ -88,14 +85,12 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
         floatingActionButton: Row(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
-            // SizedBox(
-            //   width: 100,
-            // ),
+            SizedBox(
+              width: 15,
+            ),
             FloatingActionButton(
               onPressed: () {
                 play();
-                // controller.animateTo(1500,
-                //     duration: Duration(seconds: 150), curve: Curves.linear);
               },
               backgroundColor: Color(0xff680D49),
               child: Icon(Icons.play_arrow),
@@ -111,14 +106,14 @@ Senjata pamungkas yang dimilikinya adalah terasi, yang ketika dilemparkan membua
               child: Icon(Icons.stop),
             ),
             SizedBox(
-              width: 60,
+              width: 70,
             ),
             FloatingActionButton.extended(
               onPressed: () {
-                advancedPlayer.setPlaybackRate(0.1);
+                advancedPlayer.setPlaybackRate(1);
               },
               backgroundColor: Color(0xff680D49),
-              label: Text('0.1x'),
+              label: Text('1x'),
             ),
             SizedBox(
               width: 5,
